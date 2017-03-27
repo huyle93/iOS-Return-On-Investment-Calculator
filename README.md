@@ -1,3 +1,2 @@
 # iOS-Return-On-Investment-Calculator
-return on investment calculating app
-Please run file in ionic environment
+Please run files inside ionic environment or download full package at http://huyletech.com/portfolio/
