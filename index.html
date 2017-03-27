@@ -44,17 +44,33 @@
     <ion-content class="padding">
       <ion-list>
         <label class="item item-input">
-            <input type="text" placeholder="Yearly Profit After Expense" id='a'>
+            <input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Enter yearly profit after tax and expenses. Ex: 30000" id='a'>
         </label><br>
         <label class="item item-input">
-            <input type="text" placeholder="Initial Cost" id='b'>
+            <input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Enter your initial cost. Ex: 350000" id='b'>
         </label><br>
         <button class="button button-block button-positive" onclick="cal1()">ROI Calculating</button>
-        <button class="button button-block button-positive">ROI Time</button>
-      </ion-list>
+        <button class="button button-block button-positive" onclick="cal2()">ROI Time</button>
+      </ion-list><br>
+      <div class="card1">
+        <div class="item item-divider">
+          ROI: Return on Investment
+        </div>
+        <div class="item item-text-wrap">
+          ROI Ratio tells you the efficiency of your investment
+        </div>
+      </div><br>
+      <div class="card1">
+        <div class="item item-divider">
+          ROI Time: Time of full return on your investment
+        </div>
+        <div class="item item-text-wrap">
+          ROI Time tells you how long to get back 100% of your investment
+        </div>
+      </div>
     </ion-content>
     <div class="bar bar-footer bar-balanced">
-      <div class="title" id="answer1"></div>
+      <div class="title" id="answer"></div>
     </div>
   </ion-pane>
 </body>
