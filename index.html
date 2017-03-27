@@ -45,10 +45,10 @@
     <ion-content class="padding">
       <ion-list>
         <label class="item item-input">
-            <input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Enter yearly profit after tax and expenses. Ex: 30000" id='a'>
+            <input type="tel" placeholder="Enter yearly profit. Ex: 30000" id='a'>
         </label><br>
         <label class="item item-input">
-            <input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Enter your initial cost. Ex: 350000" id='b'>
+            <input type="tel" placeholder="Enter your initial cost. Ex: 350000" id='b'>
         </label><br>
         <button class="button button-block button-positive" onclick="cal1()">ROI Calculating</button>
         <button class="button button-block button-positive" onclick="cal2()">ROI Time</button>
@@ -82,9 +82,9 @@
           </ion-item>
         </ion-list>
     </ion-content>
-    <div class="bar bar-footer bar-balanced">
+    <ion-footer-bar class="bar bar-footer bar-balanced">
       <div class="title" id="answer">Result</div>
-    </div>
+    </ion-footer-bar>
   </ion-pane>
 </body>
 
