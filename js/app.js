@@ -4,6 +4,35 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic'])
+.controller('TodoCtrl', function($scope, $ionicPopup, $ionicListDelegate){
+  $scope.tasks =
+  [
+    {title: "Note"},
+  ];
+$scope.newTask = function(){
+  $ionicPopup.prompt({
+    title: "New Note",
+    template: "Enter Note: ",
+    inputPlaceholder: "You can enter number or text",
+    okText: "Create Note"
+  }).then(function(res){
+    if (res) $scope.tasks.push({title: res, completed: false});
+  })
+};
+
+$scope.edit = function(task) {
+      $scope.data = { response: task.title };
+      $ionicPopup.prompt({
+        title: "Edit Note",
+        scope: $scope
+      }).then(function(res) {    // promise
+        if (res !== undefined) task.title = $scope.data.response;
+        $ionicListDelegate.closeOptionButtons()
+      })
+    };
+
+})
+
 
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -35,5 +64,12 @@ function cal2() {
   var a = document.getElementById('a').value;
   var b = document.getElementById('b').value;
   var c = Math.round((parseFloat(b) / parseFloat(a))) + ' years';
+  document.getElementById('answer').innerHTML = c.toString();
+}
+
+function cal3() {
+  var a = document.getElementById('a').value = "";
+  var b = document.getElementById('b').value = "";
+  var c = "Please Enter Number";
   document.getElementById('answer').innerHTML = c.toString();
 }

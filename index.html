@@ -34,11 +34,12 @@
   <script src="js/app.js"></script>
 </head>
 
-<body ng-app="starter">
+<body ng-app="starter" ng-controller="TodoCtrl">
 
   <ion-pane>
     <ion-header-bar class="bar-positive">
-      <h1 class="title">ROI Calculator</h1>
+      <h1 class="title">ROI Calculator</h1><button class="button button-icon" ng-click="newTask()"><i class="ion-compose icon"></i>
+        </button>
       </button>
     </ion-header-bar>
     <ion-content class="padding">
@@ -51,7 +52,8 @@
         </label><br>
         <button class="button button-block button-positive" onclick="cal1()">ROI Calculating</button>
         <button class="button button-block button-positive" onclick="cal2()">ROI Time</button>
-      </ion-list><br>
+        <button class="button button-block button-positive" onclick="cal3()">Clear</button>
+      </ion-list>
       <div class="card1">
         <div class="item item-divider">
           ROI: Return on Investment
@@ -67,10 +69,21 @@
         <div class="item item-text-wrap">
           ROI Time tells you how long to get back 100% of your investment
         </div>
-      </div>
+      </div><br>
+      <ion-list>
+          <ion-item ng-repeat="task in tasks" class="item-icon-right"
+           ng-class="{completed: task.completed}"
+           ng-click="task.completed = !task.completed">
+           <i class="icon ion-ios-arrow-left"></i>
+           <ion-option-button class="button-assertive"
+           ng-click="tasks.splice($index, 1)">Delete</ion-option-button>
+           <ion-option-button class="button-energized" ng-click="edit(task)">Edit</ion-option-button>
+            {{task.title}}
+          </ion-item>
+        </ion-list>
     </ion-content>
     <div class="bar bar-footer bar-balanced">
-      <div class="title" id="answer"></div>
+      <div class="title" id="answer">Result</div>
     </div>
   </ion-pane>
 </body>
